@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  django:
+    container_name: django_bookmarks
+    image: django_app  # Asegúrate de que esta es la imagen correcta de tu aplicación Django
+    command: python manage.py runserver 0.0.0.0:8080  # Puerto para el servidor de desarrollo
+    volumes:
+      - .:/app  # Monta el directorio actual en /app dentro del contenedor
+    networks:
+      - postgresql_postgres # nombre de la red del docker de posgres
+    environment:
+      DATABASE_NAME: db_name # nombre de la red del docker de posgres
+      DATABASE_USER: db_user
+      DATABASE_PASSWORD: su_contaseña
+      DATABASE_HOST: name_container # nombre del contenedor de posgres
+      DATABASE_PORT: 5432
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+networks:
+  postgresql_postgres:
+    external: true

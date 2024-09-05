@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {% block title %}
+        Plants & Gifts
+      {% endblock %}
+    </title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="/" class="logo">Plants & Gifts</a>
+    </div>
+    <div id="subheader">
+      <div class="cart">
+        {% with total_items=cart|length %}
+          {% if total_items > 0 %}
+            Su carrito:
+            <a href="{% url 'cart:cart_detail' %}">{{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}</a>
+          {% elif not order %}
+            Su carrito está vacío.
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    <div id="content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
