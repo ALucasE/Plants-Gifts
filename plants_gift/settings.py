@@ -45,6 +45,7 @@ THIRD_APP = [
 ]
 # Aquí las aplicaciones propias (Ordenar alfabéticamente)
 OWN_APP = [
+    "cart.apps.CartConfig",
     "shop.apps.ShopConfig",
 ]
 INSTALLED_APPS = BASE_APP + THIRD_APP + OWN_APP
@@ -72,6 +73,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "cart.context_processors.cart",
             ],
         },
     },
@@ -147,3 +149,5 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CART_SESSION_ID = "cart"
