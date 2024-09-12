@@ -1,0 +1,44 @@
+{'status': 201,
+'response': {'additional_info': '',
+    'auto_return': 'approved',
+    'back_urls': {'failure': 'http: //localhost:8070/payment/canceled/', 'pending': '', 'success': 'http://localhost:8070/payment/completed/'},
+    'binary_mode': False,
+    'client_id': '3582529540750982',
+    'collector_id': 1988419908,
+    'coupon_code': None,
+    'coupon_labels': None,
+    'date_created': '2024-09-11T20: 11: 42.537-04: 00',
+    'date_of_expiration': None,
+    'expiration_date_from': None,
+    'expiration_date_to': None,
+    'expires': False,
+    'external_reference': '',
+    'id': '1988419908-c9f85e01-6c87-45d7-9798-f94edbcf7c76',
+    'init_point': 'https: //www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1988419908-c9f85e01-6c87-45d7-9798-f94edbcf7c76',
+    'internal_metadata': None, 'items': [
+                {'id': '', 'category_id': '', 'currency_id': 'ARS', 'description': 'Macetero colgante de macramé', 'title': 'Producto sin descripción', 'quantity': 1, 'unit_price': 248500
+                }
+            ],
+    'marketplace': 'NONE',
+    'marketplace_fee': 0,
+    'metadata': {},
+    'notification_url': None,
+    'operation_type': 'regular_payment',
+    'payer': {'phone': {'area_code': '', 'number': ''
+                }, 'address': {'zip_code': '', 'street_name': '', 'street_number': None
+                }, 'email': '', 'identification': {'number': '', 'type': ''
+                }, 'name': '', 'surname': '', 'date_created': None, 'last_purchase': None
+            },
+    'payment_methods': {'default_card_id': None, 'default_payment_method_id': None, 'excluded_payment_methods': [
+                    {'id': ''
+                    }
+                ], 'excluded_payment_types': [
+                    {'id': ''
+                    }
+                ], 'installments': None, 'default_installments': None
+            },
+    'processing_modes': None,
+    'product_id': None,
+    'redirect_urls': {'failure': '', 'pending': '', 'success': ''
+            },
+    'sandbox_init_point': 'https: //sandbox.mercadopago.com.ar/checkout/v1/redirect?pref_id=1988419908-c9f85e01-6c87-45d7-9798-f94edbcf7c76', 'site_id': 'MLA', 'shipments': {'default_shipping_method': None, 'receiver_address': {'zip_code': '', 'street_name': '', 'street_number': None, 'floor': '', 'apartment': '', 'city_name': None, 'state_name': None, 'country_name': None}}, 'total_amount': None, 'last_updated': None, 'financing_group': ''}}
