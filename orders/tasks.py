@@ -1,5 +1,11 @@
 from celery import shared_task
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.conf import settings
+
+from io import BytesIO
+import weasyprint
 
 from .models import Order
 
@@ -23,3 +29,25 @@ def order_created(order_id):
     """
     mail_sent = send_mail(subject, message, "admin@myshop.com", [order.email])
     return mail_sent
+
+
+@shared_task
+def order_completed(order_id):
+    """
+    Tarea para enviar una notificación por correo electrónico cuando un pedido se
+    haya pagado correctamente.
+    """
+    order = Order.objects.get(id=order_id)
+    # create invoice e-mail
+    subject = f'Jacaranda Plant & Gifts - Facturae no. {order.id}'
+    message = 'Adjunto encuentrara la factura de su compra.'
+    email = EmailMessage(subject, message, 'admin@myshop.com', [order.email])
+    # generate PDF
+    html = render_to_string('orders/order/pdf.html', {'order': order})
+    out = BytesIO()
+    stylesheets=[weasyprint.CSS(settings.STATIC_ROOT / 'css/pdf.css')]
+    weasyprint.HTML(string=html).write_pdf(out, stylesheets=stylesheets)
+    # attach PDF file
+    email.attach(f'order_{order.id}.pdf', out.getvalue(), 'application/pdf')
+    # send e-mail
+    email.send()
