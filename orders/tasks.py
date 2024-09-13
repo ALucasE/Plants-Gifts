@@ -39,7 +39,7 @@ def order_completed(order_id):
     """
     order = Order.objects.get(id=order_id)
     # create invoice e-mail
-    subject = f'Jacaranda Plant & Gifts - Facturae no. {order.id}'
+    subject = f'Jacaranda Plant & Gifts - Factura n. {order.id}'
     message = 'Adjunto encuentrara la factura de su compra.'
     email = EmailMessage(subject, message, 'admin@myshop.com', [order.email])
     # generate PDF

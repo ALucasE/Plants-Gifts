@@ -82,8 +82,8 @@ table.cart {
 }
 
 table.cart img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
 }
 
@@ -327,8 +327,8 @@ ul.errorlist {
 }
 
 .recommendations.cart img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 }
 

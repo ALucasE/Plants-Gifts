@@ -52,7 +52,7 @@ class Cart:
 
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
-        del self.session["coupon_id"]
+        self.session["coupon_id"] = None
         self.save()
 
     def get_total_price(self):
