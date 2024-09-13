@@ -158,3 +158,8 @@ CART_SESSION_ID = "cart"
 CELERY_BROKER_URL = config("CELERY_BROKER_URL")
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Redis settings
+REDIS_HOST = "redis"
+REDIS_PORT = 6379
+REDIS_DB = 1

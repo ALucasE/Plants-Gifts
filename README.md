@@ -58,3 +58,37 @@ This project is licensed under the MIT License.
 
 
 QUEDE EN LA PAG 66 DEL LIBRO 6
+
+docker run -it --network postgresql_postgres --name redis -p 6379:6379 redis
+
+
+
+
+
+from shop.models import Product
+cactus_estrella = Product.objects.get(name='Cactus Estrella')
+lavanda_lavandula = Product.objects.get(name='Lavanda (Lavandula)')
+monstera_deliciosa = Product.objects.get(name='Monstera deliciosa')
+orquidea_phalaenopsis = Product.objects.get(name='Orquídea Phalaenopsis')
+
+from shop.recommender import Recommender
+r = Recommender()
+r.products_bought([cactus_estrella, lavanda_lavandula])
+r.products_bought([cactus_estrella, monstera_deliciosa])
+r.products_bought([lavanda_lavandula, cactus_estrella, orquidea_phalaenopsis])
+r.products_bought([monstera_deliciosa, orquidea_phalaenopsis])
+r.products_bought([cactus_estrella, orquidea_phalaenopsis])
+r.products_bought([lavanda_lavandula, monstera_deliciosa])
+
+r.suggest_products_for([cactus_estrella])
+
+r.suggest_products_for([lavanda_lavandula])
+
+r.suggest_products_for([monstera_deliciosa])
+
+r.suggest_products_for([orquidea_phalaenopsis])
+
+
+r.suggest_products_for([cactus_estrella, lavanda_lavandula])
+r.suggest_products_for([monstera_deliciosa, lavanda_lavandula])
+r.suggest_products_for([orquidea_phalaenopsis, cactus_estrella])
