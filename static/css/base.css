@@ -82,7 +82,9 @@ table.cart {
 }
 
 table.cart img {
-    width: 180px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 tbody td.num {

@@ -24,3 +24,4 @@ docker-compose.yml
 
 #extra
 build.md
+public/

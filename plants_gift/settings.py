@@ -46,8 +46,9 @@ THIRD_APP = [
 # Aquí las aplicaciones propias (Ordenar alfabéticamente)
 OWN_APP = [
     "cart.apps.CartConfig",
-    "shop.apps.ShopConfig",
+    "coupons.apps.CouponsConfig",
     "orders.apps.OrdersConfig",
+    "shop.apps.ShopConfig",
 ]
 INSTALLED_APPS = BASE_APP + THIRD_APP + OWN_APP
 
